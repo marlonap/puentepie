@@ -4,7 +4,7 @@ $( document ).ready( function($){
 	$('.persona').hide();
 	$('.boton').css('opacity', 0);
 	$('.persona:first-child').show();
-	setInterval( function(){ animar() }, 150 );
+	setInterval( function(){ animar() }, 200 );
 	$('.personas img').on('click', function(){ toggleAnimar() });
 
 	function animar(){

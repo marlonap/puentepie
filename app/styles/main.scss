@@ -22,7 +22,21 @@ dl {
   }
 }
 
-h1 , h2 , h3 , h4 , h5 , h6 , .boton {
+footer {
+  background-color: gray;
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 1em 0 0.8em;
+  vertical-align: middle;
+}
+
+  footer a {
+    position: relative;
+    vertical-align: bottom;
+  }
+
+h1 , h2 , h3 , h4 , h5 , h6 , .boton , .compartir {
   font-family: 'Fjalla One', sans-serif;
 }
 
@@ -67,6 +81,11 @@ header {
   padding: 0.2em 0;
 }
 
+.compartir {
+  text-decoration: none;
+}
+ 
+
 .detalles {
   text-align: left;
   padding: 0 2em;
@@ -97,6 +116,10 @@ header {
   h3{
     margin-top: 0px;
   }
+}
+
+#ocho {
+  top: -10px;
 }
 
 @media only screen and (min-width: 600px){
