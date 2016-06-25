@@ -50,8 +50,10 @@ header {
     display: inline-block;
     font-size: 2.5em;
     padding: 10px 20px 5px;
+    position: relative;
     text-shadow: 0px 0px 5px rgba(0,0,0,0.75);
     text-transform: uppercase;
+    z-index: 100;
   }
 }
 
@@ -97,6 +99,16 @@ header {
   min-width: 100%;
 }
 
+.personas {
+  position: relative;
+  #clickable {
+    display: block;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 .manito {
   background: #fd8c02;
   border-radius: 50%;
