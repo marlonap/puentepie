@@ -3,9 +3,11 @@ $( document ).ready( function($){
 
 	$('.persona').hide();
 	$('.boton').css('opacity', 0);
-	$('.persona:first-child').show();
+	$('.persona:first-of-type').show();
+	$('#clickable').css('height', $('.personas img').height() );
+
 	setInterval( function(){ animar() }, 150 );
-	$('.personas img').on('click', function(){ toggleAnimar() });
+	$('#clickable').on('click', function(){ toggleAnimar() });
 
 	function animar(){
 		if( animado == 1 ){
@@ -13,7 +15,7 @@ $( document ).ready( function($){
 				$('.persona:visible').hide().next().show();
 			}else{
 				$('.persona:visible').hide();
-				$('.persona:first-child').show();
+				$('.persona:first-of-type').show();
 			}
 		}
 	}
