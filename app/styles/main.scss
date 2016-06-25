@@ -2,10 +2,17 @@
 // endbower
 @import "normalize.css";
 
+dl {
+  dt{
+    font-weight: bold;
+  }
+}
+
 body {
-  background: #fafafa;
+  background: #ffffff;
   font-family: 'Inconsolata', monospace;
-  color: #333;
+  color: #000;
+  margin: 0;
   text-align: center;
 }
 
@@ -13,19 +20,26 @@ h1 , h2 , h3 , h4 , h5 , h6 , .boton {
   font-family: 'Fjalla One', sans-serif;
 }
 
+
 header {
   position: absolute;
   top: 0;
   width: 100%;
   h1{
-    text-transform: uppercase;
+    border: 4px solid #000;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    display: inline-block;
     font-size: 2.5em;
+    padding: 10px 20px;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+    text-transform: uppercase;
   }
 }
 
 .boton {
   background: #fd8c02;
   border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   color: black;
   display: inline-block;
   font-size: 3em;
@@ -42,16 +56,31 @@ header {
 }
 
 .browserupgrade {
-  margin: 0.2em 0;
   background: #ccc;
   color: #000;
+  margin: 0.2em 0;
   padding: 0.2em 0;
 }
 
+.detalles {
+  text-align: left;
+}
+
+
 .imagen img {
-  min-width: 100%;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.texto{
+  margin-top: -50px;
+  h2{
+    margin-bottom: 0;
+  }
+  h3{
+    margin-top: 0px;
+  }
 }
 
 @media only screen and (min-width: 600px){
