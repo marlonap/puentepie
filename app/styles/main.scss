@@ -2,12 +2,6 @@
 // endbower
 @import "normalize.css";
 
-dl {
-  dt{
-    font-weight: bold;
-  }
-}
-
 body {
   background: #ffffff;
   font-family: 'Inconsolata', monospace;
@@ -16,10 +10,21 @@ body {
   text-align: center;
 }
 
+dd {
+  margin-bottom: 15px;
+}
+
+dl {
+  line-height: 1.25em;
+  dt{
+    font-weight: bold;
+
+  }
+}
+
 h1 , h2 , h3 , h4 , h5 , h6 , .boton {
   font-family: 'Fjalla One', sans-serif;
 }
-
 
 header {
   position: absolute;
@@ -30,7 +35,7 @@ header {
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     display: inline-block;
     font-size: 2.5em;
-    padding: 10px 20px;
+    padding: 10px 20px 5px;
     text-shadow: 0px 0px 5px rgba(0,0,0,0.75);
     text-transform: uppercase;
   }
@@ -46,7 +51,7 @@ header {
   height: 50px;
   line-height: 50px;
   position: relative;
-  top: -70px;
+  top: -110px;
   text-decoration: none;
   width: 50px;
   
@@ -64,8 +69,8 @@ header {
 
 .detalles {
   text-align: left;
+  padding: 0 2em;
 }
-
 
 .imagen img {
   height: auto;
@@ -86,5 +91,9 @@ header {
 @media only screen and (min-width: 600px){
   header h1{
     font-size: 4em;
+  }
+  dl {
+    column-count: 2;
+    column-gap: 40px;
   }
 }
