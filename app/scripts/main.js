@@ -5,7 +5,6 @@ $( document ).ready( function($){
 	$('.boton').css('opacity', 0);
 
 	$('.persona:first-of-type').show();
-	$('#clickable').css('height', $('.personas img').height() );
 
 	setInterval( function(){ animar() }, 200 );
 	$('#clickable').on('click', function(){ toggleAnimar() });
@@ -13,6 +12,9 @@ $( document ).ready( function($){
 
 	function animar(){
 		if( animado == 1 ){
+			if( $('.personas img').height() > 0){
+				$('#clickable').css('height', $('.personas img').height() );
+			}
 			if( $('.persona:visible').next().length != 0 ){
 				$('.persona:visible').hide().next().show();
 			}else{
