@@ -12,8 +12,16 @@ $( document ).ready( function($){
 
 	function animar(){
 		if( animado == 1 ){
+			var altoimagen = $('.personas img').height();
+			var altopantalla = $(window).height();
+
 			if( $('.personas img').height() > 0){
-				$('#clickable').css('height', $('.personas img').height() );
+				$('#clickable').css('height', altoimagen );
+				if( altoimagen > altopantalla ){
+					$('.boton').css( 'top', altopantalla-70 );
+				}else{
+					$('.boton').css( 'top', altoimagen-70 );
+				}
 			}
 			if( $('.persona:visible').next().length != 0 ){
 				$('.persona:visible').hide().next().show();
@@ -27,10 +35,10 @@ $( document ).ready( function($){
 	function toggleAnimar(){
 		if( animado == 1 ){
 			animado = 0;
-			$('.boton').css('opacity', 1);
+			$('.boton').fadeTo( "slow" , 1);
 		}else{
 			animado = 1;
-			$('.boton').css('opacity', 0);
+			$('.boton').fadeTo( "slow" , 0);
 		}
 	}
 
