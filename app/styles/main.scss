@@ -131,13 +131,14 @@ header {
 
 .manito {
   background: #fd8c02;
-  transition: 1s all ease;
+  transition: 0.1s all ease;
+  overflow: hidden;
   iframe {
     display: none;
   }
   &.activo {
     border-radius:25px;
-    width: auto;
+    width: 193px;
     padding-left:20px;
     padding-right:20px;
     iframe {
