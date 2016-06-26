@@ -23,6 +23,23 @@ $( document ).ready( function($){
 	setInterval( function(){ animar() }, 200 );
 	$('#clickable').on('click', function(){ toggleAnimar() });
 
+	$('.manito img').on('click', function(){ 
+		if ($('.manito').hasClass('activo')) {
+			$('.manito').removeClass('activo');
+
+		}else{
+			$('.manito').addClass('activo');
+		}
+	});
+
+	$('.botonc img').on('click', function(){
+		if ($('.info').hasClass('mostrar')) {
+			$('.info').removeClass('mostrar');
+
+		}else{
+			$('.info').addClass('mostrar');
+		}
+	});
 
 	function animar(){
 		if( animado == 1 ){
