@@ -2,8 +2,22 @@ $( document ).ready( function($){
 	var animado = 1;
 
 	$('.persona').hide();
-	$('.boton').css('opacity', 0);
-
+	$('.boton').hide();
+	$('.boton').on('click', function(e){
+		e.preventDefault();
+		var element = $(this).parent().children('.texto');
+		if( $(this).parent().hasClass('abierto') ){
+			element.animate({'height': 0}, 500, function(){
+				$(this).parent().removeClass('abierto');
+				$('.boton').fadeOut( "fast" );
+				$('html, body').animate({scrollTop: 0}, 500);
+				animado = 1;
+			});
+		}else{
+			$(this).parent().addClass('abierto');
+			autoHeightAnimate( element, 500 );
+		}
+	});
 	$('.persona:first-of-type').show();
 
 	setInterval( function(){ animar() }, 200 );
@@ -35,11 +49,30 @@ $( document ).ready( function($){
 	function toggleAnimar(){
 		if( animado == 1 ){
 			animado = 0;
-			$('.boton').fadeTo( "slow" , 1);
+			$('.boton').fadeIn( "fast" );
 		}else{
-			animado = 1;
-			$('.boton').fadeTo( "slow" , 0);
+			$('.texto').animate({'height': 0}, 500, function(){
+				$('html, body').animate({scrollTop: 0}, 500);
+				$('.boton').fadeOut( "fast");
+				$('.abierto').removeClass('abierto');
+				animado = 1;
+			});
 		}
 	}
 
+	/* Function to animate height: auto */
+	function autoHeightAnimate(element, time){
+		var curHeight = element.height(), // Get Default Height
+		autoHeight = element.css('height', 'auto').height(); // Get Auto Height
+	  	element.height(curHeight); // Reset to Default Height
+	  	element.stop().animate({ height: autoHeight }, time); // Animate to Auto Height
+	}
+
+	/* Function to animate width: auto */
+	function autoWidthAnimate(element, time){
+		var curwidth = element.width(), // Get Default width
+		autoWidth = element.css('width', 'auto').width(); // Get Auto width
+	  	element.width(curwidth); // Reset to Default width
+	  	element.stop().animate({ width: autoWidth }, time); // Animate to Auto Height
+	}
 });
