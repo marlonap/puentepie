@@ -16,6 +16,7 @@ $( document ).ready( function($){
 		}else{
 			$(this).parent().addClass('abierto');
 			autoHeightAnimate( element, 500 );
+			$('html, body').animate({ scrollTop: parseInt($('.boton').css('top'))-90 }, 500);
 		}
 	});
 	$('.persona:first-of-type').show();
