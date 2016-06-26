@@ -38,6 +38,7 @@ footer {
 
 h1 , h2 , h3 , h4 , h5 , h6 , .boton , .compartir {
   font-family: 'Fjalla One', sans-serif;
+
 }
 
 header {
@@ -83,11 +84,7 @@ header {
   padding: 0.2em 0;
 }
 
-.compartir {
-  text-decoration: none;
-}
  
-
 .detalles {
   text-align: left;
   padding: 0 2em;
@@ -110,15 +107,64 @@ header {
     width: 100%;
   }
 }
-.manito {
-  background: #fd8c02;
+
+.botones {
   border-radius: 50%;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   display: inline-block;
   height: 50px;
   line-height: 78px;
   width: 50px;
   margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.manito {
+  background: #fd8c02;
+  transition: 1s all ease;
+  iframe {
+    display: none;
+  }
+  &.activo {
+    border-radius:25px;
+    width: auto;
+    padding-left:20px;
+    padding-right:20px;
+    iframe {
+      display: inline-block;
+      margin-top: 16px;
+      vertical-align: top;
+    }
+  }
+}
+.creditos {
+    text-align: right;
+}
+
+.botonc {
+  background: #c3c3c3;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 50%;
+  display: inline-block;
+  height: 38px;
+  line-height: 55px;
+  width: 38px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.info {
+  background: rgb(216, 216, 216);
+  display: none;
+  text-align: center;
+  &.mostrar {
+    display: block;
+    height: auto;
+    line-height: 1.5;
+    padding: 2em;
+    text-align: center;
+  }
 }
 
 .texto{
