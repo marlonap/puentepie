@@ -8,7 +8,10 @@ $( document ).ready( function($){
 		var element = $(this).parent().children('.texto');
 		if( $(this).parent().hasClass('abierto') ){
 			element.animate({'height': 0}, 500, function(){
-				$('.abierto').removeClass('abierto').css({'height', '0'});
+				$('.abierto').removeClass('abierto')
+				$('.texto').each(function() {
+					$(this).height(0);
+				}); 
 				$('.boton, nav').fadeOut( "fast" );
 				$('html, body').animate({scrollTop: 0}, 500);
 				animado = 1;
@@ -47,7 +50,12 @@ $( document ).ready( function($){
 	$('.prev').on('click', function(e){ 
 		e.preventDefault();
 		var abierto = 0;
-		var prev = $('.persona:visible').prev( '.persona' ) || $('.persona:last-of-type');
+		var prev = 0;
+		if( ){
+			var prev = $('.persona:visible').prev( '.persona' );
+		}else{
+			var prev = $('.persona:last-of-type');			
+		}
 		if( $('.persona:visible').hasClass('abierto') ){
 			abierto = 1;
 		};
@@ -61,7 +69,12 @@ $( document ).ready( function($){
 	$('.next').on('click', function(e){ 
 		e.preventDefault();
 		var abierto = 0;
-		var next = $('.persona:visible').next( '.persona' ) || $('.persona:first-of-type');
+		var next = 0;
+		if( $('.persona:visible').next( '.persona' ).length > 0 ){
+			next = $('.persona:visible').next( '.persona' );
+		}else{
+			next = $('.persona:first-of-type');			
+		}
 		if( $('.persona:visible').hasClass('abierto') ){
 			abierto = 1;
 		};
@@ -100,7 +113,7 @@ $( document ).ready( function($){
 
 	function retroceder(){
 		if( $('.persona:visible').prev('.persona').length != 0 ){
-			$('.persona:visible').hide().prev().show();
+			$('.persona:visible').hide().prev('.persona').show();
 		}else{
 			$('.persona:visible').hide();
 			$('.persona:last-of-type').show();
