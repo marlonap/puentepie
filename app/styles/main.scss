@@ -131,7 +131,7 @@ header {
 
 .manito {
   background: #fd8c02;
-  transition: 0.1s all ease;
+  transition: 0.1s all ease-in-out;
   overflow: hidden;
   iframe {
     display: none;
@@ -172,7 +172,6 @@ header {
   text-align: center;
   &.mostrar {
     display: block;
-    height: auto;
     line-height: 1.5;
     padding: 2em;
     text-align: center;

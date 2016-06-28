@@ -38,6 +38,7 @@ $( document ).ready( function($){
 			$('.info').removeClass('mostrar');
 
 		}else{
+			autoHeightAnimate($('.info'),500);
 			$('.info').addClass('mostrar');
 		}
 	});
