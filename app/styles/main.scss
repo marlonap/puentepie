@@ -59,6 +59,32 @@ header {
   }
 }
 
+nav a {
+  bottom: -70px;
+  display: block;
+  position: absolute;
+  background-color: darkgray;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  font-size: 35px;
+  color: #fff;
+  text-decoration: none;
+  width: 50px;
+
+  &:hover {
+    background-color: gray;
+  }
+
+  &.prev {
+    left: 0;
+  }
+
+  &.next {
+    right: 0;
+  }
+}
+
 .boton {
   background: #fd8c02;
   border-radius: 50%;
@@ -174,13 +200,18 @@ header {
 
 .info {
   background: rgb(216, 216, 216);
-  display: none;
+  box-sizing: border-box;
+  display: block;
+  height: 0;
+  line-height: 1.5;
+  overflow: hidden;
   text-align: center;
+  p {
+    padding: 2em;   
+  }
   &.mostrar {
     display: block;
-    line-height: 1.5;
-    padding: 2em;
-    text-align: center;
+    height: auto;
   }
 }
 
