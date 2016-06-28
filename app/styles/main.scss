@@ -97,10 +97,15 @@ header {
   padding: 0 2em;
 }
 
-.imagen img {
-  height: auto;
+.imagen {
   max-width: 100%;
-  min-width: 100%;
+  overflow: hidden;
+
+   img {
+    height: auto;
+    width: 150%;
+    margin-left: calc(-25%);
+  }
 }
 
 .personas {
@@ -131,6 +136,7 @@ header {
 
 .manito {
   background: #fd8c02;
+  margin-top: 20px;
   transition: 0.1s all ease-in-out;
   overflow: hidden;
   iframe {
@@ -201,5 +207,10 @@ header {
   dl {
     column-count: 2;
     column-gap: 40px;
+  }
+  .imagen img {
+    margin-left: 0;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
