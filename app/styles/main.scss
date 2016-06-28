@@ -60,6 +60,7 @@ header {
 }
 
 nav a {
+  border-radius: 50%;
   top: 50%;
   display: block;
   position: fixed;
@@ -72,16 +73,17 @@ nav a {
   text-decoration: none;
   width: 50px;
 
+
   &:hover {
     background-color: gray;
   }
 
   &.prev {
-    left: 0;
+    left: 10px;
   }
 
   &.next {
-    right: 0;
+    right: 10px;
   }
 }
 

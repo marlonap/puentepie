@@ -1,5 +1,6 @@
 $( document ).ready( function($){
 	var animado = 1;
+	var $viewport = $("html, body");
 
 	$('.persona').hide();
 	$('.boton, nav').hide();
@@ -7,19 +8,19 @@ $( document ).ready( function($){
 		e.preventDefault();
 		var element = $(this).parent().children('.texto');
 		if( $(this).parent().hasClass('abierto') ){
-			element.animate({'height': 0}, 500, function(){
-				$('.abierto').removeClass('abierto')
+			element.stop().animate({'height': 0}, 500, function(){
+				$('.abierto').removeClass('abierto');
 				$('.texto').each(function() {
 					$(this).height(0);
 				}); 
 				$('.boton, nav').fadeOut( "fast" );
-				$('html, body').animate({scrollTop: 0}, 500);
+				$viewport.stop().animate({scrollTop: 1}, 500);
 				animado = 1;
 			});
 		}else{
 			$(this).parent().addClass('abierto');
 			autoHeightAnimate( element, 500 );
-			$('html, body').animate({ scrollTop: parseInt($('.boton').css('top'))-90 }, 500);
+			$viewport.stop().animate({ scrollTop: parseInt($('.boton').css('top'))-90 }, 500);
 		}
 	});
 	$('.persona:first-of-type').show();
@@ -38,11 +39,11 @@ $( document ).ready( function($){
 
 	$('.botonc img').on('click', function(){
 		if ($('.info').hasClass('mostrar')) {
-			$('.info').animate({'height': 0}, 500).removeClass('mostrar');
+			$('.info').stop().animate({'height': 0}, 500).removeClass('mostrar');
 		}else{
 			autoHeightAnimate($('.info'),500);
 			console.log( "offset:" , $('.botonc').offset().top-70 );
-			$('html, body').animate({ scrollTop: parseInt($('.botonc').offset().top-70) }, 500);
+			$viewport.stop().animate({ scrollTop: parseInt($('.botonc').offset().top-70) }, 500);
 			$('.info').addClass('mostrar');
 		}
 	});
@@ -51,7 +52,7 @@ $( document ).ready( function($){
 		e.preventDefault();
 		var abierto = 0;
 		var prev = 0;
-		if( ){
+		if( $('.persona:visible').prev( '.persona' ).length > 0 ){
 			var prev = $('.persona:visible').prev( '.persona' );
 		}else{
 			var prev = $('.persona:last-of-type');			
@@ -85,19 +86,24 @@ $( document ).ready( function($){
 		}	
 	});
 
+	$(window).resize(function(){ 
+		ubicarElementos(); 
+	});
+
+	$(window).keyup(function( event){
+		if(animado == 0){
+			if (event.which == 37) {
+				$('.next').click();
+			}
+			if (event.which == 39) {
+				$('.prev').click();
+			}
+		}
+	});
+
 	function animar(){
 		if( animado == 1 ){
-			var altoimagen = $('.personas img').height();
-			var altopantalla = $(window).height();
-
-			if( $('.personas img').height() > 0){
-				$('#clickable').css('height', altoimagen );
-				if( altoimagen > altopantalla ){
-					$('.boton').css( 'top', altopantalla-70 );
-				}else{
-					$('.boton').css( 'top', altoimagen-70 );
-				}
-			}
+			ubicarElementos();
 			avanzar();
 		}
 	}
@@ -108,6 +114,21 @@ $( document ).ready( function($){
 		}else{
 			$('.persona:visible').hide();
 			$('.persona:first-of-type').show();
+		}
+	}
+
+	function ubicarElementos(){
+		var altoimagen = $('.persona:visible img').height();
+		var altopantalla = $(window).height();
+		console.log("redimension");
+
+		if( $('.persona:visible img').height() > 0){
+			$('#clickable').css('height', altoimagen );
+			if( altoimagen > altopantalla ){
+				$('.boton').css( 'top', altopantalla-70 );
+			}else{
+				$('.boton').css( 'top', altoimagen-70 );
+			}
 		}
 	}
 
@@ -125,8 +146,8 @@ $( document ).ready( function($){
 			animado = 0;
 			$('.boton, nav').fadeIn( "fast" );
 		}else{
-			$('.texto').animate({'height': 0}, 500, function(){
-				$('html, body').animate({scrollTop: 0}, 500);
+			$('.texto').stop().animate({'height': 0}, 500, function(){
+				$viewport.stop().animate({scrollTop: 1}, 500);
 				$('.boton, nav').fadeOut( "fast");
 				$('.abierto').removeClass('abierto');
 				animado = 1;
@@ -139,7 +160,7 @@ $( document ).ready( function($){
 		var curHeight = element.height(), // Get Default Height
 		autoHeight = element.css('height', 'auto').height(); // Get Auto Height
 	  	element.height(curHeight); // Reset to Default Height
-	  	element.stop().animate({ height: autoHeight }, time); // Animate to Auto Height
+	  	element.stop().stop().animate({ height: autoHeight }, time); // Animate to Auto Height
 	}
 
 	/* Function to animate width: auto */
@@ -147,6 +168,13 @@ $( document ).ready( function($){
 		var curwidth = element.width(), // Get Default width
 		autoWidth = element.css('width', 'auto').width(); // Get Auto width
 	  	element.width(curwidth); // Reset to Default width
-	  	element.stop().animate({ width: autoWidth }, time); // Animate to Auto Height
+	  	element.stop().stop().animate({ width: autoWidth }, time); // Animate to Auto Height
 	}
+
+	// Stop the animation if the user scrolls. Defaults on .stop() should be fine
+	$viewport.bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
+	    if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel"){
+	         $viewport.stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+	    }
+	});    
 });
