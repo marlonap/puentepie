@@ -35,10 +35,11 @@ $( document ).ready( function($){
 
 	$('.botonc img').on('click', function(){
 		if ($('.info').hasClass('mostrar')) {
-			$('.info').removeClass('mostrar');
-
+			$('.info').animate({'height': 0}, 500).removeClass('mostrar');
 		}else{
 			autoHeightAnimate($('.info'),500);
+			console.log( "offset:" , $('.botonc').offset().top-70 );
+			$('html, body').animate({ scrollTop: parseInt($('.botonc').offset().top-70) }, 500);
 			$('.info').addClass('mostrar');
 		}
 	});
