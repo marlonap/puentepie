@@ -152,7 +152,7 @@ $( document ).ready( function($){
 				$viewport.stop().animate({scrollTop: 1}, 500);
 
 				$('.adicionales , #i').hide();
-				$('.boton, nav').fadeOut( "fast");
+				$('.boton, nav').fadeOut( 'fast');
 
 				$('.abierto').removeClass('abierto');
 				animado = 1;
