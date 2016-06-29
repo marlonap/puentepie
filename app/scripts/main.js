@@ -1,6 +1,6 @@
 $( document ).ready( function($){
 	var animado = 1;
-	var $viewport = $("html, body");
+	var $viewport = $('html, body');
 
 	$('.persona').hide();
 	$('.boton, nav').hide();
@@ -13,7 +13,7 @@ $( document ).ready( function($){
 				$('.texto').each(function() {
 					$(this).height(0);
 				}); 
-				$('.boton, nav').fadeOut( "fast" );
+				$('.boton, nav').fadeOut( 'fast' );
 				$viewport.stop().animate({scrollTop: 1}, 500);
 				animado = 1;
 			});
@@ -44,7 +44,7 @@ $( document ).ready( function($){
 			$('.info').stop().animate({'height': 0}, 500).removeClass('mostrar');
 		}else{
 			autoHeightAnimate($('.info'),500);
-			console.log( "offset:" , $('.botonc').offset().top-70 );
+			console.log( 'offset:' , $('.botonc').offset().top-70 );
 			$viewport.stop().animate({ scrollTop: parseInt($('.botonc').offset().top-70) }, 500);
 			$('.info').addClass('mostrar');
 		}
@@ -122,7 +122,7 @@ $( document ).ready( function($){
 	function ubicarElementos(){
 		var altoimagen = $('.persona:visible img').height();
 		var altopantalla = $(window).height();
-		console.log("redimension");
+		console.log('redimension');
 
 		if( $('.persona:visible img').height() > 0){
 			$('#clickable').css('height', altoimagen );
@@ -146,12 +146,14 @@ $( document ).ready( function($){
 	function toggleAnimar(){
 		if( animado == 1 ){
 			animado = 0;
-			$('.boton, nav').fadeIn( "fast" );
+			$('.boton, nav').fadeIn( 'fast' );
 		}else{
 			$('.texto').stop().animate({'height': 0}, 500, function(){
 				$viewport.stop().animate({scrollTop: 1}, 500);
+
 				$('.adicionales , #i').hide();
 				$('.boton, nav').fadeOut( "fast");
+
 				$('.abierto').removeClass('abierto');
 				animado = 1;
 			});
@@ -175,8 +177,8 @@ $( document ).ready( function($){
 	}
 
 	// Stop the animation if the user scrolls. Defaults on .stop() should be fine
-	$viewport.bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
-	    if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel"){
+	$viewport.bind('scroll mousedown DOMMouseScroll mousewheel keyup', function(e){
+	    if ( e.which > 0 || e.type === 'mousedown' || e.type === 'mousewheel'){
 	         $viewport.stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
 	    }
 	});    
