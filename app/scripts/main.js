@@ -17,9 +17,11 @@ $( document ).ready( function($){
 				$viewport.stop().animate({scrollTop: 1}, 500);
 				animado = 1;
 			});
+			$('.adicionales , #i').hide();
 		}else{
 			$(this).parent().addClass('abierto');
 			autoHeightAnimate( element, 500 );
+			$('.adicionales , #i ').show();
 			$viewport.stop().animate({ scrollTop: parseInt($('.boton').css('top'))-90 }, 500);
 		}
 	});
@@ -148,6 +150,7 @@ $( document ).ready( function($){
 		}else{
 			$('.texto').stop().animate({'height': 0}, 500, function(){
 				$viewport.stop().animate({scrollTop: 1}, 500);
+				$('.adicionales , #i').hide();
 				$('.boton, nav').fadeOut( "fast");
 				$('.abierto').removeClass('abierto');
 				animado = 1;
