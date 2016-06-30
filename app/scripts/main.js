@@ -151,7 +151,7 @@ $( document ).ready( function($){
 			$('.texto').stop().animate({'height': 0}, 500, function(){
 				$viewport.stop().animate({scrollTop: 1}, 500);
 
-				$('.adicionales , #i').hide();
+				$('.adicionales , .creditos').hide();
 				$('.boton, nav').fadeOut( 'fast');
 
 				$('.abierto').removeClass('abierto');
