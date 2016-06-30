@@ -9,20 +9,16 @@ body {
   margin: 0;
   text-align: center;
 }
-
 dd {
   margin-bottom: 15px;
   margin-left: 0;
 }
-
 dl {
   line-height: 1.25em;
   dt{
     font-weight: bold;
-
   }
 }
-
 footer {
   background-color: gray;
   color: white;
@@ -31,13 +27,11 @@ footer {
   font-weight: bold;
   padding: 1em 0 0.8em;
   vertical-align: middle;
-}
-
-  footer a {
-
+  a {
     position: relative;
     vertical-align: bottom;
   }
+}
 
 h1 , h2 , h3 , h4 , h5 , h6 , .boton , .compartir {
   font-family: 'Fjalla One', sans-serif;
@@ -64,15 +58,15 @@ header {
 
 nav a {
   border-radius: 50%;
-  top: 50%;
+  color: grey;
   display: block;
-  position: fixed;
+  font-size: 35px;
   font-weight: bold;
   height: 50px;
   line-height: 50px;
-  font-size: 35px;
-  color: grey;
+  position: fixed;
   text-decoration: none;
+  top: 50%;
   width: 50px;
 
   &:hover {
@@ -137,20 +131,20 @@ p {
   overflow: hidden;
 
    img {
+    margin-left: calc(-25%);
     height: auto;
     width: 150%;
-    margin-left: calc(-25%);
   }
 }
 
 .personas {
   position: relative;
   #clickable {
-    display: block;
     background: transparent;
+    display: block;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
   }
 }
@@ -168,19 +162,16 @@ h3.datos {
 
 .botones {
   border-radius: 50%;
+  cursor: pointer;
   display: inline-block;
   height: 50px;
-  line-height: 78px;
   width: 50px;
+  line-height: 78px;
   margin-bottom: 20px;
-  cursor: pointer;
 }
-
-
 .adicionales {
   display: none;
 }
-
 .manito {
   background: #fd8c02;
   margin-top: 20px;
@@ -191,9 +182,9 @@ h3.datos {
   }
   &.activo {
     border-radius:25px;
-    width: 193px;
     padding-left:20px;
     padding-right:20px;
+    width: 193px;
     iframe {
       display: inline-block;
       margin-top: 16px;
@@ -204,21 +195,19 @@ h3.datos {
 .creditos {
     text-align: right;
 }
-
 .botonc {
   background: #c3c3c3;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   border-radius: 50%;
+  cursor: pointer;
   display: inline-block;
   height: 38px;
   line-height: 55px;
-  width: 38px;
   margin-bottom: 20px;
-  cursor: pointer;
   margin-right: 20px;
   text-align: center;
+  width: 38px;
 }
-
 .info {
   background: rgb(216, 216, 216);
   box-sizing: border-box;
@@ -235,13 +224,6 @@ h3.datos {
     height: auto;
   }
 }
-
-.pregunta {
-  font-family: 'Inconsolata' , monospace;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
 .texto{
   height: 0;
   margin-top: 0px;
@@ -270,8 +252,8 @@ h3.datos {
   .keeptogether {
     display: block;
     margin-top: 1em;
-    width: 40%;
     margin: 0 auto;
     text-align: center;
+    width: 40%;
   }
 }
