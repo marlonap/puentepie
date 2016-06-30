@@ -195,12 +195,13 @@ h3.datos {
 }
 .creditos {
     text-align: right;
+    display: none;
 }
 .botonc {
   background: #c3c3c3;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   border-radius: 50%;
-  display: none;
+  display: inline-block;
   cursor: pointer;
   height: 38px;
   line-height: 55px;

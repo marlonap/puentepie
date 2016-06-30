@@ -17,11 +17,11 @@ $( document ).ready( function($){
 				$viewport.stop().animate({scrollTop: 1}, 500);
 				animado = 1;
 			});
-			$('.adicionales , #i').hide();
+			$('.adicionales , .creditos').hide();
 		}else{
 			$(this).parent().addClass('abierto');
 			autoHeightAnimate( element, 500 );
-			$('.adicionales , #i ').show();
+			$('.adicionales , .creditos').show();
 			$viewport.stop().animate({ scrollTop: parseInt($('.boton').css('top'))-90 }, 500);
 		}
 	});
